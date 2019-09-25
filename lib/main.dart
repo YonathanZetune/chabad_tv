@@ -1,3 +1,4 @@
+import 'package:chabad_tv/network/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'utilities/constants.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
 
 Widget HomeWidget() {
   void getHTML() async {
+    await Requests.getShabbatTimes();
     final _targetUrl =
         'https://www.hebcal.com/shabbat/?geo=geoname&amp;geonameid=4682464&amp;m=50&amp;cfg=j&amp;tgt=_top';
     var response = await http.get(
