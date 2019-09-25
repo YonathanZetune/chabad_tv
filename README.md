@@ -1,6 +1,6 @@
 # chabad_tv
 
-A new Flutter application.
+Flutter project to show important info on Chabad TVs. Deploy to Fire TV Stick
 
 ## Getting Started
 
