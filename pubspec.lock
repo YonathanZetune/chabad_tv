@@ -88,6 +88,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  focusnode_widgets:
+    dependency: "direct main"
+    description:
+      name: focusnode_widgets
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.9"
   html:
     dependency: "direct main"
     description:
