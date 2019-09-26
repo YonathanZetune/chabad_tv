@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -47,13 +48,21 @@ Widget HomeWidget() {
   focusNodes.add(focus);
   return Scaffold(
     appBar: AppBar(
-      title: Center(child: Column(
-        children: <Widget>[
-          AutoSizeText("Welcome to Chabad of A&M!", minFontSize: 25,style: TextStyle(fontFamily: 'Great Vibes'),),
-          AutoSizeText("Home of the 12th Mensch", ),
+    
 
-        ],
-      )),
+      bottom: PreferredSize(
+        preferredSize: Size.fromHeight(60),
+        child: Center(child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+              AutoSizeText("Welcome to Chabad of A&M!", minFontSize: 45,style: TextStyle(color: Colors.white,fontFamily: 'Great Vibes'),),
+              AutoSizeText("Home of the 12th Mensch",style: TextStyle(color: Colors.white,) ),
+
+            ],
+          ),
+        )),
+      ),
       backgroundColor: Constants.maroon,
     ),
     body: HomeCards(),
