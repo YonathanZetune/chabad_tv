@@ -1,3 +1,5 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:chabad_tv/frontend/home_cards.dart';
 import 'package:chabad_tv/network/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -35,23 +37,25 @@ Widget HomeWidget() {
     await Requests.getShabbatTimes();
     final _targetUrl =
         'https://www.hebcal.com/shabbat/?geo=geoname&amp;geonameid=4682464&amp;m=50&amp;cfg=j&amp;tgt=_top';
-    var response = await http.get(
-        _targetUrl);
-    Future getFeed() =>
-        http.get(_targetUrl).then((xmlString) => xmlString);
+    var response = await http.get(_targetUrl);
+    Future getFeed() => http.get(_targetUrl).then((xmlString) => xmlString);
     print(response.body);
   }
+
   final List<FocusNode> focusNodes = List();
   FocusNode focus = FocusNode();
   focusNodes.add(focus);
   return Scaffold(
-      appBar: AppBar(
-        title: Text("Welcome to Chabad of A&M! Gig 'em Aggies!"),
-      backgroundColor: Constants.maroon,
-  ),
-  body: Center(
-  child: FloatingActionButton(onPressed: () async => getHTML(),),
-  ),
-  );
-  }
+    appBar: AppBar(
+      title: Center(child: Column(
+        children: <Widget>[
+          AutoSizeText("Welcome to Chabad of A&M!", minFontSize: 25,style: TextStyle(fontFamily: 'Great Vibes'),),
+          AutoSizeText("Home of the 12th Mensch", ),
 
+        ],
+      )),
+      backgroundColor: Constants.maroon,
+    ),
+    body: HomeCards(),
+  );
+}

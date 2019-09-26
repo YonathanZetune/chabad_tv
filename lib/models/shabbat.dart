@@ -1,15 +1,12 @@
 class Shabbat {
-
   final ShabbatItem items;
   final ShabbatDetails details;
 
   Shabbat(this.items, this.details);
 
   factory Shabbat.fromJson(Map<String, dynamic> json) {
-    return new Shabbat(
-        new ShabbatItem.fromJson(json["items"]),
-        new ShabbatDetails.fromJson(json)
-    );
+    return new Shabbat(new ShabbatItem.fromJson(json["items"]),
+        new ShabbatDetails.fromJson(json));
   }
 }
 
@@ -36,21 +33,18 @@ class ShabbatItem {
   ShabbatItem(this.candleLighting, this.shabbatDate, this.hebrew);
 
   factory ShabbatItem.fromJson(List<dynamic> json) {
-     String canLight;
-     String shabDate;
-     String heb;
-    for(Map map in json){
-      if(map["category"] != null && map["category"] == "candles"){
+    String canLight;
+    String shabDate;
+    String heb;
+    for (Map map in json) {
+      if (map["category"] != null && map["category"] == "candles") {
         print(map["hebrew"]);
         canLight = map["title"];
         shabDate = map["date"];
         heb = map["hebrew"];
       }
-
-
     }
 
-    return new ShabbatItem(
-        canLight, shabDate, heb);
+    return new ShabbatItem(canLight, shabDate, heb);
   }
 }
